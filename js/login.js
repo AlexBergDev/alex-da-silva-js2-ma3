@@ -24,10 +24,10 @@ function submitForm(event) {
         return displayMessage("alert-warning", "Please enter valid login details", ".message-container");
     }
 
-    doLogin(usernameValue, passwordValue);
+    executeLogin(usernameValue, passwordValue);
 }
 
-async function doLogin(username, password) {
+async function executeLogin(username, password) {
     const url = baseUrl + "auth/local";
 
     const data = JSON.stringify({ identifier: username, password: password });

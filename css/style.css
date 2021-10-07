@@ -16,3 +16,16 @@
     padding: 50px 30px;
   }
 }
+
+@media screen and (max-width: 575px) {
+  nav {
+    padding: 10px;
+  }
+  nav .btn {
+    margin: 3px 0px;
+  }
+
+  nav strong {
+    margin-right: 10px;
+  }
+}

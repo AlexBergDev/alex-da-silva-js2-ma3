@@ -4,7 +4,7 @@ import { baseUrl } from "./settings/api.js";
 import createMenu from "./components/createMenu.js";
 
 const form = document.querySelector("form");
-const email = document.querySelector("#email");
+const email = document.querySelector("#username");
 const password = document.querySelector("#password");
 const message = document.querySelector(".message-container");
 
@@ -17,20 +17,20 @@ function submitForm(event) {
 
     message.innerHTML = "";
 
-    const emailValue = email.value.trim();
+    const usernameValue = username.value.trim();
     const passwordValue = password.value.trim();
 
-    if (emailValue.length === 0 || passwordValue.length === 0) {
+    if (usernameValue.length === 0 || passwordValue.length === 0) {
         return displayMessage("alert-warning", "Please enter valid login details", ".message-container");
     }
 
-    doLogin(emailValue, passwordValue);
+    doLogin(usernameValue, passwordValue);
 }
 
-async function doLogin(email, password) {
+async function doLogin(username, password) {
     const url = baseUrl + "auth/local";
 
-    const data = JSON.stringify({ identifier: email, password: password });
+    const data = JSON.stringify({ identifier: username, password: password });
 
     const options = {
         method: "POST",
@@ -56,6 +56,6 @@ async function doLogin(email, password) {
             displayMessage("alert-danger", "Wrong email address or password", ".message-container");
         }
     } catch (error) {
-        console.log(error);
+        displayMessage("alert-danger", error, ".message-container");
     }
 }

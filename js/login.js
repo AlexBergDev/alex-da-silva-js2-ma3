@@ -4,7 +4,7 @@ import { baseUrl } from "./settings/api.js";
 import createMenu from "./components/createMenu.js";
 
 const form = document.querySelector("form");
-const email = document.querySelector("#username");
+const username = document.querySelector("#username");
 const password = document.querySelector("#password");
 const message = document.querySelector(".message-container");
 
